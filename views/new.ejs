@@ -1,0 +1,42 @@
+<%- include("partials/header") %>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- BrandLogo -->
+            <a class="navbar-brand"><i class="fa fa-cubes" style="font-size:40px;color:red"></i>BlogSite</a>
+            <!-- Navbar-Toggler-Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- div, we want to collapse -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">New Posts</a>
+                    </li>
+                </ul>
+            </div>
+    
+    
+        
+    </nav>
+</div>
+<div class="container bg-warning mt-4 p-2" style="text-align: center;border:1px solid black;">
+    <h1>New Blog</h1>
+
+    <!-- Form -->
+    <form action="/blogs" method="POST">
+        <div class="form-group mt-4 w-50 p-2 justify-content-center mx-auto">
+            <input type="text" class="form-control m-3" name="blog[post]" placeholder="Enter the Topic">
+            <input type="text" class="form-control m-3" name="blog[image]" placeholder="Enter the image">
+            <input type="text" class="form-control m-3" name="blog[body]" placeholder="Description">
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+
+
+<%- include("partials/footer") %>
