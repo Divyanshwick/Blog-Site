@@ -77,6 +77,20 @@ app.get("/blogs/:id",function(req,res){
         }
     });
 });
+//Edit Route
+app.get("/blogs/:id/edit",function(req,res){
+    Blog.findById(req.params.id,function(err,foundBlog){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("edit.ejs",{blog : foundBlog});
+        }
+    });
+});
+//Update Route
+app.put("/blogs/:id",function(req,res){
+    res.send("Update Route!!");
+});
 //Port
 app.listen(PORT,function(){
     console.log("Blog App is working fine!!");

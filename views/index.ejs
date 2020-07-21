@@ -11,10 +11,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="/blogs" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">New Posts</a>
+                    <a href="/blogs/new" class="nav-link">Create Post</a>
                 </li>
             </ul>
 
@@ -23,7 +23,7 @@
     </nav>
 
     <% blogs.forEach(function(blog){ %>
-        <ul>
+        <!-- <ul>
             <li> 
                 <h2> <%= blog.title %> </h2>
                 <img src="<%= blog.image %>" alt ="Image">
@@ -31,8 +31,18 @@
                 <p> <%= blog.created %></p>
             </li>
         </ul>
-        <a href="/blogs/<%= blog._id %>" class="btn btn-outline-primary">Show More</a>
-
+        <a href="/blogs/<%= blog._id %>" class="btn btn-outline-primary">Show More</a> -->
+        <div class="container mt-2" style="display:flex;justify-content: center;align-items: center;">
+        <div class="card mt-2" style="width:23rem">
+            <img class="card-img-top" src="<%= blog.image %>" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title"><%= blog.title %></h4>
+              <p class="card-text"><%= blog.body.substring(0,100) %> ...</p>
+              <p class="card-text"><%= blog.created.toDateString() %></p>
+              <a href="/blogs/<%= blog._id %>" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
     <% }) %> 
 </div>
 <%- include("partials/footer") %>

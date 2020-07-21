@@ -1,4 +1,5 @@
 <%- include("partials/header") %>
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <!-- BrandLogo -->
             <a class="navbar-brand"><i class="fa fa-cubes" style="font-size:40px;color:red"></i>BlogSite</a>
@@ -17,19 +18,34 @@
                     </li>
                 </ul>
             </div>
+    
+    
+        
     </nav>
-    <div class="container mt-4" style="display: flex;justify-content: center;align-items: center;">
-        <div class="card text-center w-100">
-            <div class="card-header"><%= blog.created.toDateString() %></div>
-            <div class="card-body">
-            <h5 class="card-title"><%= blog.title %></h5>
-            <img class="card-img w-75" style="border-radius: 12px;" src="<%= blog.image %>">
-            <p class="card-text mt-4" style="text-align: left;"><%= blog.body %></p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
+<div class="container bg-warning mt-4 p-2" style="border:1px solid black;">
+    <h1>Edit blog "<%= blog.title %>" </h1>
+
+    <!-- Form -->
+    <form action="/blogs/<%= blog._id %>" method="PUT">
+        <div class="form-group mt-4 h-100 mx-auto">
+            <div class="container bg-dark p-3" style="color:white;border-radius:12px;">
+                <label>Title:</label>
+                <input type="text" class="form-control m-3 mr-2 w-75" name="blog[title]" value="<%= blog.title %>" required>
+            
+            
+                <label>Image:</label>
+                <input type="text" class="form-control m-3 mr-2 w-75" name="blog[image]" value="<%= blog.image %>" required>
+            
+            
+                <label>Blog Post:</label>
+                <textarea required class="form-control m-3 mr-2 w-75" rows="8" name="blog[body]"><%= blog.body %></textarea>
             </div>
-            <div class="card-footer"><a href="/blogs" class="btn btn-outline-primary">Back</a> </div>
+            <input type="submit" class="btn btn-primary m-2">
         </div>
-    </div>
+    </form>
+</div>
+
 
 
 <%- include("partials/footer") %>
