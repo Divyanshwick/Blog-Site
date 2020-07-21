@@ -27,7 +27,13 @@
             <p class="card-text mt-4" style="text-align: left;"><%= blog.body %></p>
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
-            <div class="card-footer"><a href="/blogs" class="btn btn-outline-primary">Back</a> </div>
+            <div class="card-footer">
+                <a href="/blogs" class="btn btn-outline-primary">Back</a> 
+                <a href="/blogs/<%= blog._id %>/edit" class="btn btn-outline-warning">Update</a>
+                <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-outline-danger">Delete</button>
+                </form>
+            </div>
         </div>
     </div>
 

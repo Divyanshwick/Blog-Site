@@ -1,11 +1,13 @@
 
 var PORT = process.env.PORT || 3000;
 var express =   require("express"),
+methodOverride = require("method-override"),
 app         =   express(),
 bodyParser  =   require("body-parser");
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(methodOverride("_method"));
 
 //App Config
 const mongoose = require("mongoose");
@@ -89,7 +91,23 @@ app.get("/blogs/:id/edit",function(req,res){
 });
 //Update Route
 app.put("/blogs/:id",function(req,res){
-    res.send("Update Route!!");
+    Blog.findByIdAndUpdate(req.params.id,req.body.blog,function(err,UpdatedBlog){
+        if(err){
+            res.redirect("/blogs");
+        }else{
+            res.redirect("/blogs/"+ req.params.id);
+        }
+    });
+});
+//Delete Route
+app.delete("/blogs/:id",function(req,res){
+    Blog.findByIdAndRemove(req.params.id,function(err){
+        if(err){
+            res.redirect("/blogs");
+        }else{
+            res.redirect("/blogs");
+        }
+    });
 });
 //Port
 app.listen(PORT,function(){
