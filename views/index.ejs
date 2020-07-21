@@ -1,5 +1,5 @@
 <%- include("partials/header") %>
-    <div class="container-fluid">
+    
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- BrandLogo -->
         <a class="navbar-brand"><i class="fa fa-cubes" style="font-size:40px;color:red"></i>BlogSite</a>
@@ -17,7 +17,7 @@
                     <a href="#" class="nav-link">New Posts</a>
                 </li>
             </ul>
-        </div>
+
 
 
     </nav>
@@ -31,6 +31,7 @@
                 <p> <%= blog.created %></p>
             </li>
         </ul>
+        <a href="/blogs/<%= blog._id %>" class="btn btn-outline-primary">Show More</a>
 
     <% }) %> 
 </div>

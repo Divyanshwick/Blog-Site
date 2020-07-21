@@ -54,8 +54,30 @@ app.get("/blogs",function(req,res){
 app.get("/blogs/new",function(req,res){
     res.render("new.ejs");
 });
+//POST Route
+app.post("/blogs",function(req,res){
+    Blog.create(req.body.blog,function(err,newBlog){
+        if(err){
+            res.render("new.ejs");
+        }
+        else{
+            res.redirect("/blogs");
+        }
+    });
+});
 
-
+// Show Route
+app.get("/blogs/:id",function(req,res){
+    Blog.findById(req.params.id,function(err,showBlog){
+        if(err){
+            req.redirect("/blogs");
+        }
+        else{
+            res.render("show.ejs",{blog : showBlog});
+        }
+    });
+});
+//Port
 app.listen(PORT,function(){
     console.log("Blog App is working fine!!");
 });
