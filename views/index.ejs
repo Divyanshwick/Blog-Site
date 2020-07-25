@@ -32,7 +32,7 @@
             </li>
         </ul>
         <a href="/blogs/<%= blog._id %>" class="btn btn-outline-primary">Show More</a> -->
-        <div class="container mt-2" style="display:flex;justify-content: center;align-items: center;">
+        <div class="container mt-2 shadow-lg p-4 mb-4 bg-white" style="display:flex;justify-content: center;align-items: center;">
         <div class="card mt-2" style="width:23rem">
             <img class="card-img-top" src="<%= blog.image %>" alt="Card image">
             <div class="card-body">
@@ -45,4 +45,26 @@
         </div>
     <% }) %> 
 </div>
+<script src="https://unpkg.com/grade-js/docs/dist/grade.js"></script>
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+        /*
+            A NodeList of all your image containers (Or a single Node).
+            The library will locate an <img /> within each
+            container to create the gradient from.
+         */
+        Grade(document.querySelectorAll('.card'))
+    })
+</script>
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+        /*
+            A NodeList of all your image containers (Or a single Node).
+            The library will locate an <img /> within each
+            container to create the gradient from.
+         */
+        Grade(document.querySelectorAll('.container'))
+    })
+</script>
+
 <%- include("partials/footer") %>
