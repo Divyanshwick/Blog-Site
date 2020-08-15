@@ -1,0 +1,232 @@
+body {
+    background : #ff1e56;
+}
+:root {
+    --primary: #ffac41;
+    --secondary: #ff1e56;
+    --tertiary: #323232;
+    --accent: #4194ff;
+    --text-color: #fff;
+  }
+  ::-webkit-scrollbar {
+    width : 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #323232;
+    border-radius: 1%;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+      background: #ff1e56;
+  }
+
+.contact {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    height : auto;
+    background: #ff1e56;
+  }
+  .Box {
+    position : relative;
+    display: flex;
+    box-shadow : 5px 5px 15px var(--tertiary);
+    border-radius : 12px;
+    width : 100%;
+    max-width:1100px;
+    margin : 20px;
+    height : 600px;
+    background : var(--tertiary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .fBox { 
+    flex : 0.5;
+    /* width : 50%; */
+    display: flex;
+    justify-content: center;
+    background : var(--tertiary);
+    align-items : center;
+  }
+  .fBox form {
+    position: relative;
+    width : 100%;
+    padding : 0 0 0 75px;
+  }
+  
+  .fBox form h2 {
+    color : var(--text-color);
+    font-weight: 600;
+    font-size : 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+  }
+  .fBox form .iBox {
+    position : relative;
+    margin-bottom: 40px;
+  }
+  .fBox form .iBox:last-child {
+    margin-bottom: 0;
+  }
+  .fBox form .iBox input, 
+  .fBox form .iBox textarea{
+    position: relative;
+    background: transparent;
+    width : 100%;
+    color : var(--text-color);
+    border: none;
+    outline: none;
+    padding-bottom: 10px;
+    font-size: 1em;
+    letter-spacing: 1px;
+    font-weight: 300;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    resize: none;
+  }
+  .fBox form .iBox textarea {
+    height : 100px;
+  }
+  .fBox form .iBox input[type="submit"] {
+    background : var(--text-color);
+    padding : 5px;
+    margin-top: -10px;
+    width : 120px;
+    cursor: pointer;
+    border: 1px solid #ff1e56;
+    border-bottom-color: #ff1e56 !important;
+    border-radius: 12px;
+    color : #ff1e56;
+    font-size : 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in;
+  }
+  .fBox form .iBox input[type="submit"]:hover {
+    background: #ff1e56;
+    color : var(--text-color);
+    border-bottom-color: #ff1e56 !important;
+  }
+  .fBox form .iBox span {
+    position : absolute;
+    color : rgba(255,255,255,0.5);
+    left : 0;
+    font-weight: 300;
+    display: inline-block;
+    pointer-events: none;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .fBox form .iBox input:focus ~ span, 
+  .fBox form .iBox textarea:focus ~ span,
+  .fBox form .iBox input:valid ~ span, 
+  .fBox form .iBox textarea:valid ~ span{
+    transform : translateY(-24px);
+    color : #ff1e56;
+    font-size: 14px;
+  }
+  .fBox form .iBox input:focus, 
+  .fBox form .iBox textarea:focus,
+  .fBox form .iBox input:valid, 
+  .fBox form .iBox textarea:valid {
+    border-bottom-color: var(--text-color) ;
+  }
+  .fBox form .iBox input[type="submit"]:focus,
+  .fBox form .iBox input[type="submit"]:hover {
+    border-bottom-color: #ff1e56;
+  }
+  .imgBx {
+   flex : 0.5;
+    background-image: url('/assets/undraw_developer_activity_bv83.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 120px;
+    height : 100%;
+  }
+  .UpdImgBx {
+    flex : 0.5;
+     background-image: url('/assets/undraw_update_uxn2.svg');
+     background-repeat: no-repeat;
+     background-size: cover;
+     margin-bottom: px;
+     height : 100%;
+   }
+ 
+
+  /* socials section */
+#socials {
+    background-color: var(--tertiary);
+    text-align: center;
+    padding : 20px;
+}
+
+.white-icons {
+  color: var(--text-color);
+}
+
+.white-icons:hover {
+  color: var(--secondary);
+}
+
+/* credit section */
+#credit {
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--tertiary);
+    padding : 20px;
+}
+
+#credit a {
+  color: var(--primary);
+}
+
+#credit a:hover {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.btn-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-group a {
+    width : 100px !important;
+    
+}
+.btn-group button {
+    width : 100px !important;
+}
+.card-header {
+    background : #323232;
+    color : var(--text-color);
+    padding : 20px;
+    border : 1px solid red;
+}
+.card-footer {
+    background : #323232;
+    padding : 20px;
+    border : 1px solid red;
+    
+}
+.card {
+    text-align : center;
+}
+
+
+@media only screen and (max-width : 992px) {
+    .Box {
+        flex-direction: column-reverse;
+    }
+    .iBox {
+        width : 100%;    
+    }
+    
+}

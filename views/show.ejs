@@ -18,19 +18,25 @@
                 </ul>
             </div>
     </nav>
-    <div class="container mt-4 " style="display: flex;justify-content: center;align-items: center;">
+    <div class="container mt-5 mb-5" style="display: flex;justify-content: center;align-items: center;">
         <div class="card text-center w-100">
             <div class="card-header"><%= blog.created.toDateString() %></div>
             <div class="card-body">
-            <h5 class="card-title"><%= blog.title %></h5>
-            <img class="card-img w-75" style="border-radius: 12px;" src="<%= blog.image %>">
-            <p class="card-text mt-4" style="text-align: left;"><%= blog.body %></p>
+            <div class="container">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <img class="card-img w-75" style="border-radius: 12px;" src="<%= blog.image %>">
+                <p class="card-text mt-4" style="text-align: left;"><%= blog.body %></p>
+            </div>
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
             <div class="card-footer">
                 <div class="btn-group">
-                    <a href="/blogs" class="btn btn-outline-primary">Back</a> 
-                    <a href="/blogs/<%= blog._id %>/edit" class="btn btn-outline-warning">Update</a>
+                    <form>
+                    <a href="/blogs" class="btn btn-outline-primary" >Back</a> 
+                    </form>
+                    <form>
+                    <a href="/blogs/<%= blog._id %>/edit" class="btn btn-outline-warning ">Update</a>
+                    </form>
                     <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-outline-danger">Delete</button>
                     </form>
