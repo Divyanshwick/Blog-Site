@@ -1,12 +1,19 @@
 body {
-    background : #ff1e56;
+ background : #eae7dc;
 }
 :root {
-    --primary: #ffac41;
-    --secondary: #ff1e56;
-    --tertiary: #323232;
-    --accent: #4194ff;
-    --text-color: #fff;
+    --bg: #eae7dc;
+    --nav-item : #323232;
+    --secondary: #d8c3a5;
+    --tertiary: #8e8d8a;
+    --accent: #e98074;
+    --text-color: #e85a4f;
+  }
+  #parent {
+    background-image: url('/assets/Background.png');
+    background-repeat: no-repeat;
+    background-size : cover;
+    background-attachment: fixed;
   }
   ::-webkit-scrollbar {
     width : 6px;
@@ -24,13 +31,45 @@ body {
   ::-webkit-scrollbar-thumb:hover {
       background: #ff1e56;
   }
+  .navbar {
+    padding-left:18%; 
+  }
+  .nav-brand {
+    font-weight : 600 !important;
+    
+  }
+ 
+  .nav-link {
+    color : var(--nav-item);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition : all 0.3s ease-in;
+  }
+  .nav-link:hover {
+    color : var(--text-color);
+    border-bottom : 2px solid var(--tertiary);
+  }
+  .show {
+    margin-top : 20px;
+    margin-bottom: 20px;
+  }
 
+  .card {
+    box-shadow : 5px 5px 10px var(--nav-item);
+    height : auto;
+  }
+  .card img {
+    height : 250px;
+  }
+  .card-body {
+    background : var(--bg);
+  }
 .contact {
     display : flex;
     justify-content: center;
     align-items: center;
     height : auto;
-    background: #ff1e56;
+    background: var(--bg);
   }
   .Box {
     position : relative;
@@ -41,7 +80,7 @@ body {
     max-width:1100px;
     margin : 20px;
     height : 600px;
-    background : var(--tertiary);
+    background : var(--nav-item);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,7 +91,7 @@ body {
     /* width : 50%; */
     display: flex;
     justify-content: center;
-    background : var(--tertiary);
+    background : var(--nav-item);
     align-items : center;
   }
   .fBox form {
@@ -62,7 +101,7 @@ body {
   }
   
   .fBox form h2 {
-    color : var(--text-color);
+    color : var(--bg);
     font-weight: 600;
     font-size : 2em;
     text-transform: uppercase;
@@ -81,7 +120,7 @@ body {
     position: relative;
     background: transparent;
     width : 100%;
-    color : var(--text-color);
+    color : var(--bg);
     border: none;
     outline: none;
     padding-bottom: 10px;
@@ -95,15 +134,15 @@ body {
     height : 100px;
   }
   .fBox form .iBox input[type="submit"] {
-    background : var(--text-color);
+    background : var(--bg);
     padding : 5px;
     margin-top: -10px;
     width : 120px;
     cursor: pointer;
-    border: 1px solid #ff1e56;
-    border-bottom-color: #ff1e56 !important;
+    border: 1px solid var(--text-color);
+    border-bottom-color: var(--text-color) !important;
     border-radius: 12px;
-    color : #ff1e56;
+    color : var(--text-color);
     font-size : 20px;
     font-weight: 500;
     text-transform: uppercase;
@@ -111,8 +150,8 @@ body {
     transition: 0.3s ease-in;
   }
   .fBox form .iBox input[type="submit"]:hover {
-    background: #ff1e56;
-    color : var(--text-color);
+    background: var(--text-color);
+    color : var(--bg);
     border-bottom-color: #ff1e56 !important;
   }
   .fBox form .iBox span {
@@ -163,34 +202,36 @@ body {
 
   /* socials section */
 #socials {
-    background-color: var(--tertiary);
+    background-color: transparent;
     text-align: center;
     padding : 20px;
 }
 
 .white-icons {
-  color: var(--text-color);
+  color: var(--nav-item);
 }
 
 .white-icons:hover {
-  color: var(--secondary);
+  color: var(--text-color) !important;
+  text-decoration:none ;
 }
 
 /* credit section */
 #credit {
     text-align: center;
-    color: var(--text-color);
-    background-color: var(--tertiary);
+    color: var(--nav-item);
+    background-color: transparent !important;
     padding : 20px;
 }
 
 #credit a {
-  color: var(--primary);
-}
+  color: var(--tertiary);
+} 
 
 #credit a:hover {
-  color: var(--text-color);
+  color: var(--text-color) !important;
   text-decoration: none;
+  
 }
 .btn-group {
     display: flex;

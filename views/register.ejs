@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+<section class="contact">
+    <div class="Box">
+        <div class="fBox">
+            <form action="/blogs" method="POST">
+            
+                <legend><h2>Sign Up</h2></legend>
+                <div class="iBox">
+                    <input type="text" name="name" required="required">
+                    <span>UserName : </span>
+                </div>
+                <div class="iBox">
+                    <input type="email" name="email" required="required">
+                    <span>Email : </span>
+                </div>
+                <div class="iBox">
+                    <input type="password" name="password" required="required">
+                    <span>Password : </span>
+                </div>
+                <div class="iBox">
+                    <input type="submit" value="Submit">
+                </div>
+            
+            </form>
+        </div>
+      <div class="imgBx">
+      </div>
+    
+</div>
+
+
+</section>
+
+
+
+<%- include("partials/footer") %>
