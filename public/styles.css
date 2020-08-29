@@ -262,6 +262,9 @@ body {
 #cmnt {
   text-align: left;
   margin-top : 10px;
+  background : var(--secondary);
+  width : fit-content;
+  padding-right : 10px;
 }
 #parent_cmnt {
   background : whitesmoke;

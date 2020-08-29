@@ -12,9 +12,24 @@
             <li class="nav-item">
                 <a href="/blogs" class="nav-link">Home</a>
             </li>
+            
             <li class="nav-item">
-                <a href="/login" class="nav-link">Create Post</a>
+                <a href="/blogs/new" class="nav-link">Create Post</a>
             </li>
+            <% if(!currentUser) { %>
+            <li class="nav-item">
+                <a href="/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+                <a href="/register" class="nav-link">Sign Up</a>
+            </li>
+            <% } else { %>
+
+            <li class="nav-item">
+                <a href="/logout" class="nav-link">LogOut</a>
+            </li>
+            <% } %>
+           
         </ul>
 
 
