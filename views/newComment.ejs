@@ -3,23 +3,27 @@
 <section class="contact">
     <div class="Box">
         <div class="fBox">
-            <form action="/blogs" method="POST">
+            <form action="/blogs/<%= blog._id %>/comments" method="POST">
             
-                <legend><h2>Login</h2></legend>
+                <legend><h2>ADD A COMMENT to <%= blog.title %> </h2></legend>
                 <div class="iBox">
-                    <input type="email" name="username" required="required">
-                    <span>Email : </span>
+                    <input type="text" name="comment[author]" required="required">
+                    <span>Author : </span>
                 </div>
                 <div class="iBox">
+                    <input type="text" name="comment[text]" required="required">
+                    <span>Comment : </span>
+                </div>
+                <!-- <div class="iBox">
                     <input type="password" name="password" required="required">
                     <span>Password : </span>
-                </div>
+                </div> -->
               
                
                 <div class="iBox">
                     
-                    <input type="submit" value="Login"><br>
-                    <p style="margin-top: 10px;color:#eae7dc;">Don't have an account,&nbsp;<a href="/register" style="text-decoration: none;color :#e85a4f">Sign Up</a></p>
+                    <input type="submit" value="ADD"><br>
+                   
                     
                 </div>
             
