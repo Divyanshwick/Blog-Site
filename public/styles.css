@@ -263,12 +263,13 @@ body {
   text-align: left;
   margin-top : 10px;
   background : var(--secondary);
-  width : fit-content;
+  width : 90%;
   padding-right : 10px;
 }
 #parent_cmnt {
   background : whitesmoke;
   margin : 5px;
+  width : 100%;
 }
 .child_cmnt {
   display: flex;

@@ -24,7 +24,9 @@
                 <a href="/register" class="nav-link">Sign Up</a>
             </li>
             <% } else { %>
-
+                <li class="nav-item">
+                   Signed in as <%= currentUser.name %>
+                </li>
             <li class="nav-item">
                 <a href="/logout" class="nav-link">LogOut</a>
             </li>

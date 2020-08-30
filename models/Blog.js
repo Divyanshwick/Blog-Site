@@ -3,6 +3,12 @@ var blogSchema = new mongoose.Schema({
     title   : String,
     image   : String,
     body    : String,
+    author : {
+        id : {
+            type :mongoose.Schema.Types.ObjectId,
+            ref : "User"
+    }, name : String
+},
     comments: [
         {
            type: mongoose.Schema.Types.ObjectId,
