@@ -6,6 +6,7 @@ var bodyParser = require("body-parser");
 var flash = require("connect-flash");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+var moment = require("moment");
 var mongoose = require("mongoose");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
@@ -28,10 +29,11 @@ app.use(require("express-session")({
     resave : false,
     saveUninitialized : false
 }));
+
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.locals.moment = require("moment");
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <!-- BrandLogo -->
     <!-- <i class="fa fa-cubes" style="font-size:40px;color:red"></i> -->
-    <a class="navbar-brand"><img src="/assets/BS.png" style="width:75px;height:65px;"></a>
+    <a class="navbar-brand" href="/blogs"><img src="/assets/BS.png" style="width:75px;height:65px;"></a>
     <!-- Navbar-Toggler-Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -43,12 +43,14 @@
 </div>
 <div class="container">
     <% if(error && error.length > 0) { %>
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
             <h5><%= error %></h5>
         </div>
     <% } %>
     <% if(success && success.length > 0) { %>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
             <h5><%= success %></h5>
         </div>
     <% } %>

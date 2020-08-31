@@ -3,7 +3,7 @@
 
     <div class="container mt-5 mb-5" style="display: flex;justify-content: center;align-items: center;">
         <div class="card text-center w-100">
-            <div class="card-header"><%= blog.created.toDateString() %></div>
+            <div class="card-header"><%= blog.createdAt.toDateString() %></div>
             <div class="card-body">
             <div class="container">
                 
@@ -42,7 +42,7 @@
                                     <div class="col-md-12" id="parent_cmnt">
                                         <div class="child_cmnt">
                                             <strong><%= comment.author.username %></strong>
-                                            <span class="pull-right">10 days ago</span>
+                                            <span class="pull-right"><% moment(comment.createdAt).fromNow() %></span>
                                         </div>
                                         <p><%= comment.text %></p>
                                         <div class="C-btn" style="display: flex;justify-content: space-between;margin-bottom:5px;">

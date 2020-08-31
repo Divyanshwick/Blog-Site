@@ -20,7 +20,7 @@
             <div class="card-body">
               <h4 class="card-title"><%= blog.title %></h4>
               <p class="card-text"><%= blog.body.substring(0,100) %> ...</p>
-              <p class="card-text"><%= blog.created.toDateString() %></p>
+              <p class="card-text"><%= blog.createdAt.toDateString() %></p>
               <a href="/blogs/<%= blog._id %>" class="btn btn-outline-primary">Read More</a>
             </div>
           </div>

@@ -362,6 +362,7 @@ body {
   }
   .Box {
     justify-content: center;
+    align-items: center;
   }
   .fBox {
     flex : 0.9;
@@ -382,7 +383,10 @@ body {
   }
   form h2 {
     text-align : center;
+    font-weight : 500;
+    font-size : 2rem !important;
   }
+
   .comments {
     padding-left : 0;
     padding-right : 0;
