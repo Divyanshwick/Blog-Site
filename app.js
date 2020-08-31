@@ -4,8 +4,7 @@ var  express =   require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var flash = require("connect-flash");
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
+
 var moment = require("moment");
 var mongoose = require("mongoose");
 var passport = require("passport");
@@ -15,7 +14,7 @@ var Blog = require("./models/Blog");
 var Comment = require("./models/comment");
 var User = require("./models/users");
 var seedDB = require("./seeds")
-// seedDB(); seed the DB
+
 
 mongoose.connect("mongodb+srv://admin-divyansh:Test123@cluster1.fantd.mongodb.net/blog_app",{
     useNewUrlParser : true,
@@ -24,16 +23,22 @@ mongoose.connect("mongodb+srv://admin-divyansh:Test123@cluster1.fantd.mongodb.ne
 .then(()=> console.log("Connected to DB"))
 .catch(error => console.log(error.message));
 
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(methodOverride("_method"));
+app.locals.moment = require("moment");
+app.use(flash());
+
 app.use(require("express-session")({
     secret : "Our little secret.",
     resave : false,
     saveUninitialized : false
 }));
 
-app.use(flash());
+
 app.use(passport.initialize());
 app.use(passport.session());
-app.locals.moment = require("moment");
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -44,9 +49,7 @@ app.use(function(req,res,next){
     res.locals.success = req.flash("success");
     next();
 })
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(methodOverride("_method"));
+
 
 //============
 //Blog Routes
