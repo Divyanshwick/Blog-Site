@@ -153,6 +153,8 @@ app.post("/blogs/:id/comments",isLoggedIn,function(req,res) {
                 } else {
                     newCmnt.author._id = req.user._id;
                     newCmnt.author.username = req.user.name;
+                    newCmnt.author.email = req.user.username;
+                   
                     newCmnt.save();
                     blog.comments.push(newCmnt);
                     blog.save();
@@ -219,8 +221,10 @@ app.delete("/blogs/:id/comments/:comment_id", function(req,res){
 app.post("/register",(req,res) => {
     User.register(new User({username : req.body.username, name : req.body.name}),req.body.password,function(err, user){
          if(err) {
-             req.flash("error",err);
-             return res.render("register.ejs");
+             console.log(err);
+             var errMsg = err.message;
+             req.flash("error",errMsg);
+             res.redirect("/register");
          } 
          passport.authenticate("local")(req, res, function(){
              req.flash("success","Account successfully created!!");
