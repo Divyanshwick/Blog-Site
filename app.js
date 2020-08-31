@@ -3,6 +3,7 @@ var methodOverride = require("method-override");
 var  express =   require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var flash = require("connect-flash");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 var mongoose = require("mongoose");
@@ -27,7 +28,7 @@ app.use(require("express-session")({
     resave : false,
     saveUninitialized : false
 }));
-
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -37,6 +38,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req,res,next){
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 })
 app.use(express.static("public"));
@@ -79,9 +82,11 @@ app.post("/blogs",function(req,res){
     var newBlog = {title : title,image : image,body : body,author : author}
     Blog.create(newBlog,function(err,newlyCreatedBlog){
         if(err){
+            req.flash("error","Some error Occurred!!");
             res.render("new.ejs");
         }
         else{
+            req.flash("success","Blog successfully created :)");
             res.redirect("/blogs");
         }
     });
@@ -102,6 +107,9 @@ app.get("/blogs/:id",function(req,res){
 //Edit Blogs Route
 app.get("/blogs/:id/edit",checkBlogOwnership,function(req,res){
     Blog.findById(req.params.id,function(err,foundBlog){
+        if(err) {
+            req.flash("error","Requested Blog doesn't exist");
+        }
         res.render("edit.ejs",{blog : foundBlog});
     });
 });
@@ -109,8 +117,10 @@ app.get("/blogs/:id/edit",checkBlogOwnership,function(req,res){
 app.put("/blogs/:id",checkBlogOwnership, function(req,res){
     Blog.findByIdAndUpdate(req.params.id,req.body.blog,function(err,UpdatedBlog){
         if(err){
+            req.flash("error","Some error occurred!!");
             res.redirect("/blogs");
         }else{
+            req.flash("success","Blog updated successfully");
             res.redirect("/blogs/"+ req.params.id);
         }
     });
@@ -119,8 +129,10 @@ app.put("/blogs/:id",checkBlogOwnership, function(req,res){
 app.delete("/blogs/:id",checkBlogOwnership, function(req,res){
     Blog.findByIdAndRemove(req.params.id,function(err){
         if(err){
+            req.flash("error","Requested blog does not exist!!");
             res.redirect("/blogs");
         }else{
+            req.flash("success","Blog deleted successfully");
             res.redirect("/blogs");
         }
     });
@@ -166,6 +178,7 @@ app.get("/blogs/:id/comments/new",isLoggedIn,function(req,res) {
 app.get("/blogs/:id/comments/:comment_id/edit", function(req,res) {
     Comment.findById(req.params.comment_id, function(err, foundComment) {
         if(err) {
+            req.flash("error","You need to be logged in to do that!!");
             res.redirect("back");
         } else {
             res.render("editCmnt.ejs",{blog_id : req.params.id, comment : foundComment});
@@ -177,8 +190,10 @@ app.get("/blogs/:id/comments/:comment_id/edit", function(req,res) {
 app.put("/blogs/:id/comments/:comment_id",function(req,res) {
     Comment.findByIdAndUpdate(req.params.comment_id,req.body.comment,function(err, updatedCmnt){
         if(err) {
+            req.flash("error","Something went wrong!!");
             res.redirect("back");
         } else {
+            req.flash("success","Comment successfully edited");
             res.redirect("/blogs/"+req.params.id);
         }
     })
@@ -188,8 +203,10 @@ app.delete("/blogs/:id/comments/:comment_id", function(req,res){
     
     Comment.findByIdAndRemove(req.params.comment_id, function(err){
         if(err){
+            req.flash("error","You need to be logged in to do that!!");
             res.redirect("back");
         } else {
+            req.flash("success","Comment successfully deleted!!");
             res.redirect("/blogs/"+ req.params.id);
         }
     })
@@ -202,10 +219,11 @@ app.delete("/blogs/:id/comments/:comment_id", function(req,res){
 app.post("/register",(req,res) => {
     User.register(new User({username : req.body.username, name : req.body.name}),req.body.password,function(err, user){
          if(err) {
-             console.log(err);
+             req.flash("error",err);
              return res.render("register.ejs");
          } 
          passport.authenticate("local")(req, res, function(){
+             req.flash("success","Account successfully created!!");
              res.redirect("/blogs");
          })
      })
@@ -228,7 +246,8 @@ app.get("/login", (req,res) => {
 //Logout
 app.get("/logout",(req,res) => {
     req.logout();
-    res.redirect("/");
+    req.flash("success","Logged You Out!!");
+    res.redirect("/blogs");
 })
 
 //==============
@@ -236,8 +255,10 @@ app.get("/logout",(req,res) => {
 //==============
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()) {
+        
         return next();
     }
+    req.flash("error","You need to be logged in to do that!!");
     res.redirect("/login");
 }
 
@@ -245,17 +266,20 @@ function checkBlogOwnership(req,res,next) {
     if(req.isAuthenticated()) {
         Blog.findById(req.params.id,function(err,foundBlog){
             if(err){
+                req.flash("error","Campground not found!!");
                 res.redirect("back");
             }else{
                 if(foundBlog.author.id.equals(req.user._id)) {
                     next();
                 } else {
+                    req.flash("error","You don't have the permission to do that!!");
                     res.redirect("back");
                 }
                 
             }
         });
     } else {
+        req.flash("error","You need to be logged in to do that");
         res.redirect("back");
     }
 }
