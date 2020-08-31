@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-sm">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light">
     <!-- BrandLogo -->
     <!-- <i class="fa fa-cubes" style="font-size:40px;color:red"></i> -->
     <a class="navbar-brand"><img src="/assets/BS.png" style="width:75px;height:65px;"></a>
@@ -8,32 +9,34 @@
     </button>
     <!-- div, we want to collapse -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" id="nav-list">
             <li class="nav-item">
                 <a href="/blogs" class="nav-link">Home</a>
             </li>
             
             <li class="nav-item">
-                <a href="/blogs/new" class="nav-link">Create Post</a>
+                <a href="/blogs/new" class="nav-link">Create a Blog</a>
             </li>
+            
             <% if(!currentUser) { %>
-            <li class="nav-item">
+            <li class="nav-item ml-auto" id="auth-out">
                 <a href="/login" class="nav-link">Login</a>
             </li>
             <li class="nav-item">
-                <a href="/register" class="nav-link">Sign Up</a>
+                <a href="/register ml-auto" class="nav-link">Sign Up</a>
             </li>
             <% } else { %>
-                <li class="nav-item">
-                   Signed in as <%= currentUser.name %>
+                <li class="nav-item" id="auth-in">
+                   <A href="#" class="nav-link disable" ><%= currentUser.name %></A>
                 </li>
-            <li class="nav-item">
+            <li class="nav-item" >
                 <a href="/logout" class="nav-link">LogOut</a>
             </li>
             <% } %>
-           
+        
         </ul>
 
 
 
 </nav>
+</div>

@@ -43,26 +43,14 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(methodOverride("_method"));
 
-
-//App Config
-
-
-//Model Config
-
-
-// Blog.create({
-//     title : "Labrador",
-//     image : "data:image/jpeg;base64,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",
-//     body  : "This is the image of a Labrador puppy,which is super cute",
-     
-// });
-
-//Routes
+//============
+//Blog Routes
+//============
 app.get("/",function(req,res){
     res.redirect("/blogs");
 });
 
-
+//Blogs(Landing Page)
 app.get("/blogs",function(req,res){
     Blog.find({},function(err,blogs){
         if(err){
@@ -73,29 +61,13 @@ app.get("/blogs",function(req,res){
         }
     });
 });
-app.post("/register",(req,res) => {
-   User.register(new User({username : req.body.username, name : req.body.name}),req.body.password,function(err, user){
-        if(err) {
-            console.log(err);
-            return res.render("register.ejs");
-        } 
-        passport.authenticate("local")(req, res, function(){
-            res.redirect("/blogs");
-        })
-    })
-})
 
-app.post("/login",passport.authenticate("local",{
-    successRedirect : "/blogs",
-    failureRedirect : "/login"
-}) ,function(req,res) {
-  
-})
-//New Route
+//Create Post
 app.get("/blogs/new",isLoggedIn,function(req,res){
     res.render("new.ejs");
 });
-//POST Route
+
+//Create blog POST Route
 app.post("/blogs",function(req,res){
     var title = req.body.title;
     var image = req.body.image;
@@ -115,7 +87,7 @@ app.post("/blogs",function(req,res){
     });
 });
 
-// Show Route
+// Show Blogs Route
 app.get("/blogs/:id",function(req,res){
     Blog.findById(req.params.id).populate("comments").exec(function(err,showBlog){
         if(err){
@@ -127,13 +99,13 @@ app.get("/blogs/:id",function(req,res){
         }
     });
 });
-//Edit Route
+//Edit Blogs Route
 app.get("/blogs/:id/edit",checkBlogOwnership,function(req,res){
     Blog.findById(req.params.id,function(err,foundBlog){
         res.render("edit.ejs",{blog : foundBlog});
     });
 });
-//Update Route
+//Update Blogs Route
 app.put("/blogs/:id",checkBlogOwnership, function(req,res){
     Blog.findByIdAndUpdate(req.params.id,req.body.blog,function(err,UpdatedBlog){
         if(err){
@@ -143,7 +115,7 @@ app.put("/blogs/:id",checkBlogOwnership, function(req,res){
         }
     });
 });
-//Delete Route
+//Delete Blogs Route
 app.delete("/blogs/:id",checkBlogOwnership, function(req,res){
     Blog.findByIdAndRemove(req.params.id,function(err){
         if(err){
@@ -153,19 +125,10 @@ app.delete("/blogs/:id",checkBlogOwnership, function(req,res){
         }
     });
 });
-
-//Adding Comments
-app.get("/blogs/:id/comments/new",isLoggedIn,function(req,res) {
-    Blog.findById(req.params.id,function(err, blog) {
-        if(err) {
-            console.log(err);
-        } else {
-            res.render("newComment.ejs",{blog : blog});
-        }
-    })
-    
-});
-
+//==========
+//Comments
+//==========
+//Show all comments
 app.post("/blogs/:id/comments",isLoggedIn,function(req,res) {
     Blog.findById(req.params.id, function(err,blog) {
         if(err) {
@@ -188,8 +151,19 @@ app.post("/blogs/:id/comments",isLoggedIn,function(req,res) {
         }
     })
 })
-
-app.get("/blogs/:id/comments/:comment_id/edit",function(req,res) {
+//new Comment
+app.get("/blogs/:id/comments/new",isLoggedIn,function(req,res) {
+    Blog.findById(req.params.id,function(err, blog) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("newComment.ejs",{blog : blog});
+        }
+    })
+    
+});
+//Edit Comment
+app.get("/blogs/:id/comments/:comment_id/edit", function(req,res) {
     Comment.findById(req.params.comment_id, function(err, foundComment) {
         if(err) {
             res.redirect("back");
@@ -199,7 +173,7 @@ app.get("/blogs/:id/comments/:comment_id/edit",function(req,res) {
     });
    
 })
-
+//Put Comment
 app.put("/blogs/:id/comments/:comment_id",function(req,res) {
     Comment.findByIdAndUpdate(req.params.comment_id,req.body.comment,function(err, updatedCmnt){
         if(err) {
@@ -209,8 +183,8 @@ app.put("/blogs/:id/comments/:comment_id",function(req,res) {
         }
     })
 })
-
-app.delete("/blogs/:id/comments/:comment_id",function(req,res){
+//Delete Comment
+app.delete("/blogs/:id/comments/:comment_id", function(req,res){
     
     Comment.findByIdAndRemove(req.params.comment_id, function(err){
         if(err){
@@ -224,12 +198,34 @@ app.delete("/blogs/:id/comments/:comment_id",function(req,res){
 //===============
 //AUTHENTICATION
 //===============
+//Register
+app.post("/register",(req,res) => {
+    User.register(new User({username : req.body.username, name : req.body.name}),req.body.password,function(err, user){
+         if(err) {
+             console.log(err);
+             return res.render("register.ejs");
+         } 
+         passport.authenticate("local")(req, res, function(){
+             res.redirect("/blogs");
+         })
+     })
+ })
+ //Login
+ app.post("/login",passport.authenticate("local",{
+     successRedirect : "/blogs",
+     failureRedirect : "/login"
+ }) ,function(req,res) {
+   
+ })
+ //Show Regiter
 app.get("/register",(req,res) =>{
     res.render("register.ejs");
 })
+//Show Login
 app.get("/login", (req,res) => {
     res.render("login.ejs");
 })
+//Logout
 app.get("/logout",(req,res) => {
     req.logout();
     res.redirect("/");
@@ -264,6 +260,27 @@ function checkBlogOwnership(req,res,next) {
     }
 }
 
+function checkCommentOwnership(req,res,next) {
+    if(req.isAuthenticated()) {
+        Comment.findById(req.params.comment_id,function(err,foundComment){
+            if(err){
+                res.redirect("back");
+            }else{
+                // console.log(foundComment.author._id);
+                // console.log(req.user._id);
+                // console.log(foundComment.author.id.equals(req.user._id));
+                if(foundComment.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    res.redirect("back");
+                }
+                
+            }
+        });
+    } else {
+        res.redirect("back");
+    }
+}
 
 //Port
 app.listen(PORT,function(){
