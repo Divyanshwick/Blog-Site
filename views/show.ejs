@@ -42,7 +42,7 @@
                                     <div class="col-md-12" id="parent_cmnt">
                                         <div class="child_cmnt">
                                             <strong><%= comment.author.username %></strong>
-                                            <span class="pull-right"><% moment(comment.createdAt).fromNow() %></span>
+                                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
                                         </div>
                                         <p><%= comment.text %></p>
                                         <div class="C-btn" style="display: flex;justify-content: space-between;margin-bottom:5px;">
