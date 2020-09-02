@@ -108,6 +108,11 @@ body {
   .card-body {
     background : var(--bg);
   }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+  }
  
 .contact {
     display : flex;
@@ -412,6 +417,9 @@ body {
   }
   .card_heading {
     flex-direction : column;
+  }
+  .like-group {
+    flex-direction: column;
   }
   #show-img {
     width: 100%;

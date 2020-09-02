@@ -28,7 +28,7 @@
                             </button>
                             <% } %>
                             <button type="button" class="btn btn-sm btn-light" data-toggle="modal"
-                                    data-target="#campgroundLikes">See more details
+                                    data-target="#blogLikes">See more details
                             </button>
                         </div>
                     </form>
@@ -92,13 +92,14 @@
         </div>
     </div>
  <!-- Campground Likes Modal -->
-<div id="campgroundLikes" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+<div id="blogLikes" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Blog likes: <%= blog.likes.length %></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
             </div>
             <div class="modal-body">
                 <table class="table table-striped">
