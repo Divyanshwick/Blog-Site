@@ -13,7 +13,7 @@ var LocalMongooseStrategy = require("passport-local-mongoose");
 var Blog = require("./models/Blog");
 var Comment = require("./models/comment");
 var User = require("./models/users");
-var seedDB = require("./seeds")
+var seedDB = require("./seeds");
 
 
 mongoose.connect("mongodb+srv://admin-divyansh:Test123@cluster1.fantd.mongodb.net/blog_app",{
@@ -55,10 +55,12 @@ app.use(function(req,res,next){
 //Blog Routes
 //============
 app.get("/",function(req,res){
-    res.redirect("/blogs");
+    res.redirect("/landing");
 });
-
-//Blogs(Landing Page)
+app.get("/landing",(req,res) => {
+    res.render("landing.ejs");
+})
+//Blogs(View all Blogs )
 app.get("/blogs",function(req,res){
     Blog.find({},function(err,blogs){
         if(err){

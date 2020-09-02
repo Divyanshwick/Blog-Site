@@ -73,6 +73,9 @@ body {
     
     box-shadow: 3px 2px 3px var(--nav-item);
   }
+
+ 
+
   #auth-in {
     
     border : 2px solid var(--secondary);
