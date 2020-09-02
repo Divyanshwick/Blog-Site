@@ -10,6 +10,7 @@
             <img class="card-img-top" id="card-img" src="<%= blog.image %>" alt="Card image">
             <div class="card-body">
               <h4 class="card-title"><%= blog.title %></h4>
+              <span class="badge badge-pill badge-secondary p-2"><i class="fas fa-thumbs-up"></i> <%= blog.likes.length %></span>
               <p class="card-text"><%= blog.body.substring(0,100) %> ...</p>
               <p class="card-text"><%= blog.createdAt.toDateString() %></p>
               <a href="/blogs/<%= blog._id %>" class="btn btn-outline-primary">Read More</a>

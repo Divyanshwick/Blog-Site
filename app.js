@@ -101,7 +101,7 @@ app.post("/blogs",function(req,res){
 
 // Show Blogs Route
 app.get("/blogs/:id",function(req,res){
-    Blog.findById(req.params.id).populate("comments").exec(function(err,showBlog){
+    Blog.findById(req.params.id).populate("comments likes").exec(function(err,showBlog){
         if(err){
             req.redirect("/blogs");
         }
@@ -144,6 +144,41 @@ app.delete("/blogs/:id",checkBlogOwnership, function(req,res){
         }
     });
 });
+//======
+//Likes
+//======
+//Blog like route
+app.post("/blogs/:id/likes",isLoggedIn,(req,res) => {
+    Blog.findById(req.params.id,(err,foundBlog)=> {
+        if(err) {
+            req.flash("error","Blog not found!!!");
+            req.redirect("/blogs");
+        } 
+            var foundUserLike = foundBlog.likes.some((like) => {
+                return like.equals(req.user._id);
+            });
+
+            if(foundUserLike) {
+                foundBlog.likes.pull(req.user._id);
+            } else {
+                foundBlog.likes.push(req.user);
+            }
+
+            foundBlog.save((err) => {
+                if(err) {
+                    req.flash("error","An error occurred!!");
+                    return res.redirect("/blogs");
+                }
+                return res.redirect("/blogs/"+ foundBlog._id);
+            });
+        
+    });
+});
+
+
+
+
+
 //==========
 //Comments
 //==========
