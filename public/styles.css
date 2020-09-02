@@ -240,13 +240,39 @@ body {
     margin-bottom: 120px;
     height : 100%;
   }
+  .LoginImgBx {
+    flex : 0.5;
+    background-image: url('/assets/undraw_Login.svg') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    height : 85%;
+  }
   .UpdImgBx {
     flex : 0.5;
      background-image: url('/assets/undraw_update_uxn2.svg');
      background-repeat: no-repeat;
-     background-size: cover;
-     margin-bottom: px;
-     height : 100%;
+     background-size : cover;
+     
+     height : 70%;
+     width : 60%;
+   }
+   .SignUpImgBx {
+    flex : 0.5;
+    background-image: url('/assets/undraw_SignUp.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 100px;
+    
+    height : 50%;
+   }
+   .CmntImgBx {
+    flex : 0.5;
+    background-image: url('/assets/undraw_Comments.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 120px;
+    height : 100%;
    }
  
 
@@ -370,6 +396,15 @@ body {
 }
 @media only screen and (max-width : 576px) {
   .imgBx {
+    display: none;
+  }
+  .LoginImgBx {
+    display: none;
+  }
+  .UpdImgBx {
+    display: none;
+  }
+  .SignUpImgBx {
     display: none;
   }
   .Box {
