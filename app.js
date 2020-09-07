@@ -256,12 +256,31 @@ app.delete("/blogs/:id/comments/:comment_id", function(req,res){
     })
 });
 
+//=============
+//User Profile
+//=============
+
+//show user profile
+app.get("/users/:id",(req,res) => {
+    User.findById(req.params.id,(err,foundUser) => {
+        if(err) {
+            req.flash("error","Profile not Found!!");
+            req.redirect("/blogs");
+        } else {
+            res.render("User.ejs", {user : foundUser});   
+        }
+    })
+})
+
+
+
 //===============
 //AUTHENTICATION
 //===============
 //Register
 app.post("/register",(req,res) => {
-    User.register(new User({username : req.body.username, name : req.body.name}),req.body.password,function(err, user){
+    
+    User.register(new User({username : req.body.username, name : req.body.name,image : req.body.userImage}),req.body.password,function(err, user){
          if(err) {
              console.log(err);
              var errMsg = err.message;

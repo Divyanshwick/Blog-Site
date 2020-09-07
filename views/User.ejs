@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %> 
+<div class="container">
+    <div class="card mt-4 mb-4" id="UserCard" data-aos="slide-up" data-aos-duration="800">
+        <div class="card-body" id="UserCardBody">
+            <img src="<%= user.image %>"
+                alt="person1" class="image-fluid rounded-circle w-50">
+            <h1>Name : <%= user.name %></h1>
+            <h3>Email : <%= user.username %></h3>
+           
+            <div class="d-flex flex-row justify-content-center">
+                <div class="p-4">
+                    <a href="#">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+                <div class="p-4">
+                    <a href="#">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="p-4">
+                    <a href="#">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </div>
+                <div class="p-4">
+                    <a href="#">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

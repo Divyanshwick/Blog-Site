@@ -79,6 +79,7 @@ body {
   #auth-in {
     
     border : 2px solid var(--secondary);
+    border-radius: 12px;
     box-shadow: 3px 1px 1px var(--secondary);
   }
   #auth-out {
@@ -95,6 +96,60 @@ body {
     flex-wrap: wrap;
     justify-content : center;
     align-items : center;
+  }
+
+  /*User Profile*/
+  #UserCard {
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px var(--tertiary);
+    transition : all 0.3s ease-in;
+    background: var(--tertiary);
+    color : var(--text);
+  
+  }
+  #UserCard:hover {
+    background : var(--primary);
+    box-shadow : 5px 5px 10px var(--tertiary);
+  
+  } 
+  #UserCard:hover h3,#UserCard:hover i {
+    color : var(--text);
+  } 
+  
+  #UserCard h1 {
+    font-size : 36px !important;
+    color : var(--secondary) !important;
+    text-shadow: 2px 2px var(--primary) !important;
+    font-weight : bold !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  
+  }
+  #UserCard h3 {
+    font-size : 24px;
+    font-weight : bold;
+    color : var(--primary);
+    text-shadow: 2px 2px var(--primary-variant);
+  }
+  #UserCard:hover h1{
+    text-shadow: 3px 3px var(--tertiary) !important;
+  } 
+  #UserCard:hover h3 {
+    color : var(--tertiary);
+  }
+  #UserCard img {
+    margin-top: -50px;
+  }
+  #UserCard i {
+    font-size : 26px;
+    transition : all 0.3s ease-in;
+    color : var(--primary-variant);
+  }
+  #UserCard i:hover{
+    color : var(--tertiary);
+  }
+  #UserCard p {
+    font-size: 500;
   }
 
   .card {
@@ -382,18 +437,6 @@ body {
 }
 
 
-@media only screen and (max-width : 992px) {
-    /* .Box {
-        flex-direction: column;
-    } */
-    .navbar {
-      padding-left : 0;
-    }
-    .iBox {
-        width : 100%;    
-    }
-    
-}
 @media only screen and (max-width : 576px) {
   .imgBx {
     display: none;
