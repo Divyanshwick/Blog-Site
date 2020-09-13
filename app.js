@@ -16,7 +16,7 @@ var User = require("./models/users");
 var seedDB = require("./seeds");
 
 
-mongoose.connect("mongodb+srv://admin-divyansh:Test123@cluster1.fantd.mongodb.net/blog_app",{
+mongoose.connect("",{
     useNewUrlParser : true,
     useUnifiedTopology : true
 })
